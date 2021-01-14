@@ -14,7 +14,7 @@
   <meta name="description" content>
   <meta name="author" content="John Doe">
   <meta name="keywords" content>
-  <title>Hello World ~ Hexo</title>
+  <title>Hexo</title>
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
@@ -102,7 +102,7 @@
 
             
               <br>
-              <p>星期日, 十月 6日 2019, 12:05 中午</p>
+              <p>星期四, 一月 14日 2021, 12:07 凌晨</p>
             
           </div>
 
@@ -123,15 +123,54 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto">
           <div class="markdown-body">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p>title: MFC（基于对话框）学习总结</p>
+<h1 id="MFC（基于对话框）学习总结"><a href="#MFC（基于对话框）学习总结" class="headerlink" title="MFC（基于对话框）学习总结"></a>MFC（基于对话框）学习总结</h1><p>#环境：VS2019</p>
+<p>软件课设，要求做一个医院病人监护系统，小组三人，老师建议C或者C++，我负责GUI模块，摸索了很久选择了用C++，学习了MFC库，做一个小的总结在这里</p>
+<h2 id="一，创建工程文件"><a href="#一，创建工程文件" class="headerlink" title="一，创建工程文件"></a>一，创建工程文件</h2><p>创建MFC应用程序，选择应用程序类型为基于对话框</p>
+<h2 id="二，基本控件学习及基本使用"><a href="#二，基本控件学习及基本使用" class="headerlink" title="二，基本控件学习及基本使用"></a>二，基本控件学习及基本使用</h2><h4 id="1，按键（button）"><a href="#1，按键（button）" class="headerlink" title="1，按键（button）"></a>1，按键（button）</h4><p>从工具箱拖入到Dialog框中,双击按钮跳转到进行点击按钮的响应代码编写</p>
+<p>同时学习了messagebox（TEXT（“内容”））；</p>
+<p>此语句可以弹出小框显示出内容。</p>
+<h4 id="2，静态对话框-Static-Text"><a href="#2，静态对话框-Static-Text" class="headerlink" title="2，静态对话框(Static Text)"></a>2，静态对话框(Static Text)</h4><p>单击后可以编写汉字静态持续显示</p>
+<h4 id="3-编辑栏（Edit-Control）（注：需要关联变量）"><a href="#3-编辑栏（Edit-Control）（注：需要关联变量）" class="headerlink" title="3,编辑栏（Edit Control）（注：需要关联变量）"></a>3,编辑栏（Edit Control）（注：需要关联变量）</h4><p>可以输入内容，关联变量（值类型）后打开update（）其他程序中引用此变量为编辑框内的内容</p>
+<p>变量有值类型和控件类型，其中值类型可以引用变量表示输入内容</p>
+<p>特别当关联变量后，如果需要更改，需要在变量管理内删除原有变量，再进入.cpp文件内注释原有变量声明（不会自动删除）</p>
+<h4 id="4，列表（List-Control）（注：需要关联变量）"><a href="#4，列表（List-Control）（注：需要关联变量）" class="headerlink" title="4，列表（List Control）（注：需要关联变量）"></a>4，列表（List Control）（注：需要关联变量）</h4><p>相关语句</p>
+<p>（lista为关联变量名，自行设定）</p>
+<p>1.lista.InsertColumn(序号（0开始）, “插入内容”, LVCFMT_LEFT（左对齐）, 50（位置）);</p>
+<p>插入表头即第一行头</p>
+<p>2.lista.InsertItem(序号n（0开始）, TEXT(“内容”));插入第n行的第1格的内容</p>
+<p>3.lista.SetItemText(行序号（0开始）, 列序号（1开始）, TEXT(“内容”));</p>
+<p>前两步骤初始化列表行头和列头 第三步用来填充内部空格内容</p>
+<h4 id="5，其他界面连接（注：需要在子界面添加类）"><a href="#5，其他界面连接（注：需要在子界面添加类）" class="headerlink" title="5，其他界面连接（注：需要在子界面添加类）"></a>5，其他界面连接（注：需要在子界面添加类）</h4><p>资源视图中Dialog文件夹右击插入Dialog，点击进入子界面进行规划后，右击界面添加类，取类名，</p>
+<p>主界面使用前主界面的.cpp文件头文件先include”类文件名.h“，之后进行定义对象后使用。</p>
+<p>常用语句</p>
+<p>对象名.domodal（）；跳出子界面框框</p>
+<h2 id="三，疑难点处理"><a href="#三，疑难点处理" class="headerlink" title="三，疑难点处理"></a>三，疑难点处理</h2><h4 id="1-MFC特有类型Cstring类型"><a href="#1-MFC特有类型Cstring类型" class="headerlink" title="1.MFC特有类型Cstring类型"></a>1.MFC特有类型Cstring类型</h4><p>Cstring类型中存储的是宽字节字符串，一般的通信中多使用多字节字符串，需要相互转化后使用，这一部分在软件课设过程中处理了很久，找了很多办法才实现</p>
+<p>实现代码：</p>
+<p>DWORD num = WideCharToMultiByte(CP_ACP, 0, A1, -1, NULL, 0, NULL, 0);A1为宽字节字符数组名</p>
+<pre><code class="C++">//开辟空间
+char* tChar = NULL;
+tChar = (char*)malloc(num * sizeof(char));
+if (tChar == NULL)
+{
+    free(tChar);
+}
+memset(tChar, 0, num * sizeof(char));
+
+//将宽字节字符串转换为多字节字符串
+WideCharToMultiByte(CP_ACP, 0, A1, -1, tChar, num, NULL, 0);</code></pre>
+<p>tChar为多常用的一维字符指针，最终保存得到的转化后的结果。</p>
+<h4 id="2-不同界面内部变量值的传递"><a href="#2-不同界面内部变量值的传递" class="headerlink" title="2.不同界面内部变量值的传递"></a>2.不同界面内部变量值的传递</h4><p>MFC很奇怪，正常C++的设置多个.cpp内可以公用的变量方法会报错，解决不了，查了很多资料，发现得用这个办法在多个.cpp文件内传递。</p>
+<p>在任意一个源文件内部</p>
+<p>写子类（子类名xxx）继承自CWinApp类，在其中定义</p>
+<p>public:<br>    变量名；</p>
+<p>​    …</p>
+<p>.cpp文件内include之前的.h文件</p>
+<p>xxx* APP = (xxx*)AfxGetApp();</p>
+<p>创建类指针，然后APP-&gt;变量名实现多个.cpp文件内的公用。</p>
+<h2 id="四，其他内容学习"><a href="#四，其他内容学习" class="headerlink" title="四，其他内容学习"></a>四，其他内容学习</h2><p><u>多线程</u></p>
+<p>CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)子程序名称,NULL, NULL, NULL);</p>
+<p>在此处分两条路并行，主线程继续向下执行，子线程向子程序那边进行向下执行。</p>
 
             <hr>
           </div>
@@ -243,7 +282,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Hello World&nbsp;",
+        "&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
